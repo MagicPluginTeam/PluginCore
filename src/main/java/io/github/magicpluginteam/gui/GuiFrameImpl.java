@@ -1,6 +1,6 @@
-package gui;
+package io.github.magicpluginteam.gui;
 
-import gui.utils.Function3;
+import io.github.magicpluginteam.gui.utils.Function3;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityPickupItemEvent;

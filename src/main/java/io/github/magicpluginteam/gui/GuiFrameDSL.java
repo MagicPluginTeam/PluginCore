@@ -1,4 +1,4 @@
-package gui;
+package io.github.magicpluginteam.gui;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

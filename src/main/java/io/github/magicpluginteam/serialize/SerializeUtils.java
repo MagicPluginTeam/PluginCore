@@ -1,4 +1,4 @@
-package serialize;
+package io.github.magicpluginteam.serialize;
 
 import org.bukkit.configuration.ConfigurationSection;
 

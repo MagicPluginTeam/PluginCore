@@ -1,10 +1,8 @@
-package serialize;
+package io.github.magicpluginteam.serialize;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class SerializableInventory implements Serializable<Inventory> {
     @Override
