@@ -5,7 +5,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 
-public class SerializableInventory implements YamlSerializable<Inventory> {
+public class SerializableInventory implements YamlSectionSerializable<Inventory> {
     @Override
     public Inventory deserialize(ConfigurationSection conf) {
         return Bukkit.createInventory(null, conf.getInt("InventorySize"));

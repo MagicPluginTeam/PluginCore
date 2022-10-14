@@ -3,11 +3,30 @@ package io.github.magicpluginteam.serialize;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public interface YamlSerializable<T> {
+import java.util.HashMap;
 
-    T deserialize(ConfigurationSection conf);
+public class YamlSerializable<T> {
 
-    ConfigurationSection serialize(T t);
+    YamlSectionSerializable<T> sectionSerializable;
+    HashMap<String, T> map = new HashMap<>();
+
+    public YamlSerializable(YamlSectionSerializable<T> yamlSerializable) {
+        this.sectionSerializable = yamlSerializable;
+    }
+
+    public void deserialize(ConfigurationSection conf) {
+        for (var keys : conf.getKeys(false)) {
+            map.put(keys, sectionSerializable.deserialize(conf.getConfigurationSection(keys)));
+        }
+    }
+
+    public ConfigurationSection serialize() {
+        var section = new YamlConfiguration();
+        for (var entry : map.entrySet()) {
+            section.set(entry.getKey(), sectionSerializable.serialize(entry.getValue()));
+        }
+        return section;
+    }
+
 
 }
-
