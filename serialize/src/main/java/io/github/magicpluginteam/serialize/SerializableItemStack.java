@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
-public class SerializableItemStack implements Serializable<ItemStack> {
+public class SerializableItemStack implements YamlSerializable<ItemStack> {
     @Override
     public ItemStack deserialize(ConfigurationSection conf) {
         return new ItemStack(Material.valueOf(conf.getString("Material")));
