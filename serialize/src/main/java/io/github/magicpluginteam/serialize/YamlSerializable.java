@@ -9,9 +9,5 @@ public interface YamlSerializable<T> {
 
     ConfigurationSection serialize(T t);
 
-    default ConfigurationSection newSection() {
-        return new YamlConfiguration();
-    }
-
 }
 

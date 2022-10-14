@@ -2,6 +2,7 @@ package io.github.magicpluginteam.serialize;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 
 public class SerializableInventory implements YamlSerializable<Inventory> {
@@ -12,7 +13,7 @@ public class SerializableInventory implements YamlSerializable<Inventory> {
 
     @Override
     public ConfigurationSection serialize(Inventory inventory) {
-        var section = newSection();
+        var section = new YamlConfiguration();
         section.set("Material", inventory.getSize());
         return section;
     }
