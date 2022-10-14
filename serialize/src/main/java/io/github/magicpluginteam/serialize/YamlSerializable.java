@@ -15,8 +15,15 @@ public class YamlSerializable<T> {
     }
 
     public void deserialize(ConfigurationSection conf) {
-        for (var keys : conf.getKeys(false)) {
-            map.put(keys, sectionSerializable.deserialize(conf.getConfigurationSection(keys)));
+        for (var key : conf.getKeys(false)) {
+            ConfigurationSection section;
+            if (conf.isConfigurationSection(key)) {
+                section = conf.getConfigurationSection(key);
+            } else {
+                section = new YamlConfiguration();
+                section.set("_", conf.get(key));
+            }
+            map.put(key, sectionSerializable.deserialize(section));
         }
     }
 
