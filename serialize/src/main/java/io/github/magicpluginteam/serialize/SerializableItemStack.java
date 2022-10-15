@@ -1,10 +1,11 @@
-package serialize;
+package io.github.magicpluginteam.serialize;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 
-public class SerializableItemStack implements Serializable<ItemStack> {
+public class SerializableItemStack implements YamlSectionSerializable<ItemStack> {
     @Override
     public ItemStack deserialize(ConfigurationSection conf) {
         return new ItemStack(Material.valueOf(conf.getString("Material")));
@@ -12,7 +13,7 @@ public class SerializableItemStack implements Serializable<ItemStack> {
 
     @Override
     public ConfigurationSection serialize(ItemStack itemStack) {
-        var section = newSection();
+        var section = new YamlConfiguration();
         section.set("Material", itemStack.getType().name());
         return section;
     }
