@@ -61,6 +61,7 @@ public class GuiSupport implements Listener {
     public void onClick(InventoryClickEvent event) {
         Inventory inventory = event.getInventory();
         GuiWindow window = window(inventory);
+        if (window == null) return;
         int slot = event.getRawSlot();
         if (slot < 0) {
             window.onClickOutside(event);
