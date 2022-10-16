@@ -25,11 +25,11 @@ public class GuiFrameImpl implements GuiWindow, GuiFrame {
     @Override
     public Inventory getInventory() { return inv; }
 
-    private Consumer<InventoryOpenEvent> onOpen;
-    private Consumer<InventoryCloseEvent> onClose;
-    private Function3<Integer, Integer, InventoryClickEvent> onClick;
-    private Consumer<InventoryClickEvent> onClickBottom;
-    private Consumer<InventoryClickEvent> onClickOutside;
+    public Consumer<InventoryOpenEvent> onOpen;
+    public Consumer<InventoryCloseEvent> onClose;
+    public Function3<Integer, Integer, InventoryClickEvent> onClick;
+    public Consumer<InventoryClickEvent> onClickBottom;
+    public Consumer<InventoryClickEvent> onClickOutside;
 
     public GuiFrameImpl(int lines, String title) {
         inv = Bukkit.createInventory(this, lines * 9, title);
