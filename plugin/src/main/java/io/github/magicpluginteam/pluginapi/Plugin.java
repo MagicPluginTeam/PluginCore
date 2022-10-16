@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class Plugin extends JavaPlugin implements Listener {
 
     private boolean allowTask = false;
-    private ArrayList<Runnable> disableEvent = new ArrayList<>();
+    private final ArrayList<Runnable> disableEvent = new ArrayList<>();
 
     public void addDisableEvent(Runnable runnable) {
         disableEvent.add(runnable);
