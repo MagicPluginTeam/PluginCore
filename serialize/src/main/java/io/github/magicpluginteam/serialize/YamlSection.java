@@ -7,17 +7,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Yaml<T> {
+public class YamlSection<T> {
 
     private final YamlSectionSerializable<T> sectionSerializable;
     private final HashMap<String, T> map = new HashMap<>();
 
-    public Yaml(YamlSectionSerializable<T> sectionSerializable) {
+    public YamlSection(YamlSectionSerializable<T> sectionSerializable) {
         this.sectionSerializable = sectionSerializable;
     }
 
-    public HashMap<String, T> getMap() {
-        return map;
+    public T get(String name) {
+        return map.getOrDefault(name, null);
     }
 
     public void deserialize(ConfigurationSection conf) {
@@ -44,16 +44,5 @@ public class Yaml<T> {
         return section;
     }
 
-    public void save(File file) {
-        try {
-            serialize().save(file);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void load(File file) {
-        deserialize(YamlConfiguration.loadConfiguration(file));
-    }
 
 }
