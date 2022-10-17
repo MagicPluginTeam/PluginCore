@@ -11,6 +11,9 @@ import java.lang.annotation.Target;
 public @interface YamlFile {
     String name();
 
+    /**
+     * If array elements are more than one, bind as SerializableYamlSymbol
+     */
     Class<? extends YamlSectionSerializable<?>>[] serializable();
 
 }
