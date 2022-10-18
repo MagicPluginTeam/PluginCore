@@ -1,11 +1,11 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSerializable;
+import io.github.magicpluginteam.serialize.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "title")
+@YamlSymbol(symbol = "title")
 public class SerializableTitleAlert implements YamlSectionSerializable<TitleAlert> {
     @Override
     public TitleAlert deserialize(ConfigurationSection conf) {

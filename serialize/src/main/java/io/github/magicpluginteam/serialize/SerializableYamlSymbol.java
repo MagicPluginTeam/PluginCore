@@ -16,7 +16,7 @@ public class SerializableYamlSymbol<T> implements YamlSectionSerializable<T> {
     }
 
     public void bind(Class<? extends YamlSectionSerializable<? extends T>> clazz) {
-        YamlSerializable annotation = clazz.getAnnotation(YamlSerializable.class);
+        YamlSymbol annotation = clazz.getAnnotation(YamlSymbol.class);
         if (annotation == null) {
             throw new AssertionError(clazz.getSimpleName() + " does not have YamlSerializable annotation");
         }

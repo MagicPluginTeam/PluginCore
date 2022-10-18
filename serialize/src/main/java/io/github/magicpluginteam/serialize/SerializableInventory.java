@@ -5,7 +5,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 
-@YamlSerializable(symbol = "inventories")
+@YamlSymbol(symbol = "inventories")
 public class SerializableInventory implements YamlSectionSerializable<Inventory> {
     @Override
     public Inventory deserialize(ConfigurationSection conf) {

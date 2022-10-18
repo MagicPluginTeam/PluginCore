@@ -1,11 +1,11 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSerializable;
+import io.github.magicpluginteam.serialize.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "chat")
+@YamlSymbol(symbol = "chat")
 public class SerializableChatAlert implements YamlSectionSerializable<ChatAlert> {
     @Override
     public ChatAlert deserialize(ConfigurationSection conf) {

@@ -4,7 +4,7 @@ import io.github.magicpluginteam.serialize.utils.NumberUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "config")
+@YamlSymbol(symbol = "config")
 public class SerializablePrimitive implements YamlSectionSerializable<Object> {
     @Override
     public Object deserialize(ConfigurationSection conf) {

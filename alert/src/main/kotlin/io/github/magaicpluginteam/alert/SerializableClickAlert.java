@@ -1,12 +1,11 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSerializable;
-import net.md_5.bungee.api.chat.ClickEvent;
+import io.github.magicpluginteam.serialize.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "click")
+@YamlSymbol(symbol = "click")
 public class SerializableClickAlert implements YamlSectionSerializable<ClickAlert> {
     @Override
     public ClickAlert deserialize(ConfigurationSection conf) {

@@ -1,11 +1,11 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSerializable;
+import io.github.magicpluginteam.serialize.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "hover")
+@YamlSymbol(symbol = "hover")
 public class SerializableHoverAlert implements YamlSectionSerializable<HoverAlert> {
     @Override
     public HoverAlert deserialize(ConfigurationSection conf) {

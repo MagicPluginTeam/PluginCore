@@ -1,11 +1,11 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSerializable;
+import io.github.magicpluginteam.serialize.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSerializable(symbol = "sound")
+@YamlSymbol(symbol = "sound")
 public class SerializableSoundAlert implements YamlSectionSerializable<SoundAlert> {
     @Override
     public SoundAlert deserialize(ConfigurationSection conf) {
