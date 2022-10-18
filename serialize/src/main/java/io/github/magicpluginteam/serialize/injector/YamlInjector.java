@@ -7,6 +7,15 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.lang.reflect.Field;
 
+/**
+ * You can inject yaml hashmap with serializer
+ *
+ * example:
+ * `@YamlFile(file = "config.yml", serializable = SomeSerializer.class)`
+ * `public YamlSection<GenericType> config;`
+ *
+ * If YamlFile#serializable array have multiple elements, it automatically switches to YamlSymbol Serializer
+ */
 public class YamlInjector {
 
     public static void inject(Object obj, File root) {

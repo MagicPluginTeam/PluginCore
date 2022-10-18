@@ -8,6 +8,24 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * This is hashmap Symbol Serializer
+ *
+ * others-yaml-looks like:
+ *   key:
+ *     contents...
+ *   key2:
+ *     conetnts...
+ *
+ *
+ * this-example:
+ *   key.symbol-A:
+ *     contentsA...
+ *   key2.symbol-B:
+ *     contentsB...
+ *
+ *  You can use multiple serializer in one yaml file with this
+ */
 public class SerializableYamlSymbol<T> implements YamlSectionSerializable<T> {
 
     private final HashMap<String, YamlSectionSerializable<T>> serializableMap = new HashMap<>();
