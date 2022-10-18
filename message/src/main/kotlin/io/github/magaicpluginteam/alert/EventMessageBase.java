@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 public class EventMessageBase implements EventMessage {
 
-    String text;
+    public String text;
 
     public EventMessageBase(String text) {
         this.text = text;

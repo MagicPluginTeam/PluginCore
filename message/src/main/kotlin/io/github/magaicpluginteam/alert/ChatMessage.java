@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 
 public class ChatMessage implements Message {
 
-    String message;
+    public String message;
 
     public ChatMessage(String message) {
         this.message = message;

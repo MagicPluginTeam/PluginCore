@@ -5,11 +5,11 @@ import org.bukkit.entity.Player;
 
 public class TitleMessage implements Message {
 
-    int fadeIn;
-    int stay;
-    int fadeOut;
-    String title;
-    String subtitle;
+    public  int fadeIn;
+    public int stay;
+    public int fadeOut;
+    public String title;
+    public String subtitle;
 
     public TitleMessage(int fadeIn, int stay, int fadeOut, String title, String subtitle) {
         this.fadeIn = fadeIn;

@@ -4,11 +4,12 @@ import org.bukkit.entity.Player;
 
 public class SoundMessage implements Message {
 
+
+    public String sound;
+
     public SoundMessage(String sound) {
         this.sound = sound;
     }
-
-    String sound;
 
     @Override
     public void send(Player player, Object... args) {

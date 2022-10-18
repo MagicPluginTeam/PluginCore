@@ -5,8 +5,8 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class ClickMessage extends EventMessageBase {
 
-    ClickEvent.Action action;
-    String content;
+    public ClickEvent.Action action;
+    public String content;
 
     public ClickMessage(String text, ClickEvent.Action action, String content) {
         super(text);

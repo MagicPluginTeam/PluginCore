@@ -6,8 +6,8 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class HoverMessage extends EventMessageBase {
 
-    HoverEvent.Action action;
-    String content;
+    public HoverEvent.Action action;
+    public String content;
 
     public HoverMessage(String text, HoverEvent.Action action, String content) {
         super(text);

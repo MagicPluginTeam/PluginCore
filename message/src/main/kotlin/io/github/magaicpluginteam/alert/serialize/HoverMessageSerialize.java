@@ -1,5 +1,6 @@
-package io.github.magaicpluginteam.alert;
+package io.github.magaicpluginteam.alert.serialize;
 
+import io.github.magaicpluginteam.alert.HoverMessage;
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;

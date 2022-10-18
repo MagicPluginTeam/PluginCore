@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 public class ActionBarMessage implements Message {
 
-    String message;
+    public String message;
 
     public ActionBarMessage(String message) {
         this.message = message;
