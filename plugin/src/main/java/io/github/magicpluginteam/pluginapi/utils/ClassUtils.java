@@ -22,11 +22,11 @@ public class ClassUtils {
         }
     }
 
-    public static void loadJarFilesToFolder(JavaPlugin plugin, boolean force, List<String> include) {
+    public static void loadJarFilesToFolder(JavaPlugin plugin, boolean force, List<String> include, List<String> exclude) {
         File[] files = plugin.getDataFolder().listFiles();
         if (files == null || files.length == 0) {
             getJarFiles(plugin.getClass()).stream()
-                    .filter(it -> include.stream().filter(it::endsWith).findFirst().orElse(null) != null && !it.equals("plugin.yml"))
+                    .filter(it -> include.stream().filter(it::endsWith).findFirst().orElse(null) != null && !exclude.contains(it))
                     .filter(it -> force || !new File(plugin.getDataFolder(), it).exists())
                     .forEach(it -> plugin.saveResource(it, false));
         }

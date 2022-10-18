@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Plugin extends JavaPlugin implements Listener {
 
@@ -23,7 +24,7 @@ public class Plugin extends JavaPlugin implements Listener {
         super.onEnable();
         Bukkit.getScheduler().cancelTasks(this);
         HandlerList.unregisterAll((org.bukkit.plugin.Plugin) this);
-        ClassUtils.loadJarFilesToFolder(this, false, Arrays.asList(".yml", ".schem"));
+        ClassUtils.loadJarFilesToFolder(this, false, Arrays.asList(".yml", ".schem"), List.of("plugin.yml"));
         Bukkit.getPluginManager().registerEvents(this, this);
         allowTask = true;
     }
