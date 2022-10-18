@@ -1,7 +1,7 @@
 package io.github.magaicpluginteam.alert;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
-import io.github.magicpluginteam.serialize.YamlSymbol;
+import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 

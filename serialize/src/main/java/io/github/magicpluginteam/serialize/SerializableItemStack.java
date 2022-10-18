@@ -1,5 +1,6 @@
 package io.github.magicpluginteam.serialize;
 
+import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;

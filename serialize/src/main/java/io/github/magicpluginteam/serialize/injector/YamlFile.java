@@ -1,4 +1,6 @@
-package io.github.magicpluginteam.serialize;
+package io.github.magicpluginteam.serialize.injector;
+
+import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

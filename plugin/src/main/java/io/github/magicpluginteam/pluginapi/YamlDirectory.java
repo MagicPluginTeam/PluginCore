@@ -2,6 +2,8 @@ package io.github.magicpluginteam.pluginapi;
 
 import io.github.magaicpluginteam.alert.*;
 import io.github.magicpluginteam.serialize.*;
+import io.github.magicpluginteam.serialize.injector.YamlFile;
+import io.github.magicpluginteam.serialize.injector.YamlInjector;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

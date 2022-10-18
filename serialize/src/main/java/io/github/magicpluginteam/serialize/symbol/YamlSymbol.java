@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.serialize;
+package io.github.magicpluginteam.serialize.symbol;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
