@@ -20,14 +20,14 @@ public class YamlDirectory {
     public YamlSection<ItemStack> items;
 
     @YamlFile(name = "alerts.yml", serializable = {
-            SerializableActionBarAlert.class,
-            SerializableChatAlert.class,
-            SerializableClickAlert.class,
-            SerializableHoverAlert.class,
-            SerializableSoundAlert.class,
-            SerializableTitleAlert.class
+            ActionBarMessageSerialize.class,
+            ChatMessageSerialize.class,
+            ClickMessageSerialize.class,
+            HoverMessageSerialize.class,
+            SoundMessageSerialize.class,
+            TitleMessageSerialize.class
     })
-    public YamlSection<Alert> alerts;
+    public YamlSection<Message> alerts;
 
     public YamlDirectory(Plugin plugin) {
         YamlInjector.inject(this, plugin.getDataFolder());

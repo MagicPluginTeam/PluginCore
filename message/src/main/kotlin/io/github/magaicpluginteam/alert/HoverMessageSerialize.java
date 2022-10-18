@@ -6,10 +6,10 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "hover")
-public class SerializableHoverAlert implements YamlSectionSerializable<HoverAlert> {
+public class HoverMessageSerialize implements YamlSectionSerializable<HoverMessage> {
     @Override
-    public HoverAlert deserialize(ConfigurationSection conf) {
-        return new HoverAlert(
+    public HoverMessage deserialize(ConfigurationSection conf) {
+        return new HoverMessage(
                 conf.getString("text"),
                 conf.getString("action"),
                 conf.getString("content")
@@ -17,11 +17,11 @@ public class SerializableHoverAlert implements YamlSectionSerializable<HoverAler
     }
 
     @Override
-    public ConfigurationSection serialize(HoverAlert hoverAlert) {
+    public ConfigurationSection serialize(HoverMessage hoverMessage) {
         YamlConfiguration section = new YamlConfiguration();
-        section.set("text", hoverAlert.text);
-        section.set("action", hoverAlert.action);
-        section.set("content", hoverAlert.content);
+        section.set("text", hoverMessage.text);
+        section.set("action", hoverMessage.action);
+        section.set("content", hoverMessage.content);
         return section;
     }
 }

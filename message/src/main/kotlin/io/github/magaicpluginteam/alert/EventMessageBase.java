@@ -4,11 +4,11 @@ import io.github.magaicpluginteam.alert.utils.ArrayUtils;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 
-public class EventAlertBase implements EventAlert {
+public class EventMessageBase implements EventMessage {
 
     String text;
 
-    public EventAlertBase(String text) {
+    public EventMessageBase(String text) {
         this.text = text;
     }
 

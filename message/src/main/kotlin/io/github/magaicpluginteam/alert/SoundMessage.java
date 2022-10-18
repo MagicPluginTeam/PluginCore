@@ -2,9 +2,9 @@ package io.github.magaicpluginteam.alert;
 
 import org.bukkit.entity.Player;
 
-public class SoundAlert implements Alert {
+public class SoundMessage implements Message {
 
-    public SoundAlert(String sound) {
+    public SoundMessage(String sound) {
         this.sound = sound;
     }
 

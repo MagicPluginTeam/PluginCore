@@ -6,10 +6,10 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "title")
-public class SerializableTitleAlert implements YamlSectionSerializable<TitleAlert> {
+public class TitleMessageSerialize implements YamlSectionSerializable<TitleMessage> {
     @Override
-    public TitleAlert deserialize(ConfigurationSection conf) {
-        return new TitleAlert(
+    public TitleMessage deserialize(ConfigurationSection conf) {
+        return new TitleMessage(
                 conf.getInt("fadeIn"),
                 conf.getInt("stay"),
                 conf.getInt("fadeOut"),
@@ -19,13 +19,13 @@ public class SerializableTitleAlert implements YamlSectionSerializable<TitleAler
     }
 
     @Override
-    public ConfigurationSection serialize(TitleAlert titleAlert) {
+    public ConfigurationSection serialize(TitleMessage titleMessage) {
         YamlConfiguration section = new YamlConfiguration();
-        section.set("fadeIn", titleAlert.fadeIn);
-        section.set("stay", titleAlert.stay);
-        section.set("fadeOut", titleAlert.fadeOut);
-        section.set("title", titleAlert.title);
-        section.set("subtitle", titleAlert.subtitle);
+        section.set("fadeIn", titleMessage.fadeIn);
+        section.set("stay", titleMessage.stay);
+        section.set("fadeOut", titleMessage.fadeOut);
+        section.set("title", titleMessage.title);
+        section.set("subtitle", titleMessage.subtitle);
         return section;
     }
 }

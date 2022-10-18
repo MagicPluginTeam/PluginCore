@@ -6,10 +6,10 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "click")
-public class SerializableClickAlert implements YamlSectionSerializable<ClickAlert> {
+public class ClickMessageSerialize implements YamlSectionSerializable<ClickMessage> {
     @Override
-    public ClickAlert deserialize(ConfigurationSection conf) {
-        return new ClickAlert(
+    public ClickMessage deserialize(ConfigurationSection conf) {
+        return new ClickMessage(
                 conf.getString("text"),
                 conf.getString("action"),
                 conf.getString("content")
@@ -17,11 +17,11 @@ public class SerializableClickAlert implements YamlSectionSerializable<ClickAler
     }
 
     @Override
-    public ConfigurationSection serialize(ClickAlert clickAlert) {
+    public ConfigurationSection serialize(ClickMessage clickMessage) {
         YamlConfiguration section = new YamlConfiguration();
-        section.set("text", clickAlert.text);
-        section.set("action", clickAlert.action);
-        section.set("content", clickAlert.content);
+        section.set("text", clickMessage.text);
+        section.set("action", clickMessage.action);
+        section.set("content", clickMessage.content);
         return section;
     }
 }

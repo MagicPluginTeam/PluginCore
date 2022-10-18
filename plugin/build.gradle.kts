@@ -1,4 +1,4 @@
 dependencies {
     api(project(":serialize"))
-    api(project(":alert"))
+    api(project(":message"))
 }

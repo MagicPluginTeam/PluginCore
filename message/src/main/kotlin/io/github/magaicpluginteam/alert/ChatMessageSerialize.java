@@ -5,17 +5,17 @@ import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-@YamlSymbol(symbol = "actionbar")
-public class SerializableActionBarAlert implements YamlSectionSerializable<ActionBarAlert> {
+@YamlSymbol(symbol = "chat")
+public class ChatMessageSerialize implements YamlSectionSerializable<ChatMessage> {
     @Override
-    public ActionBarAlert deserialize(ConfigurationSection conf) {
-        return new ActionBarAlert(conf.getString("_"));
+    public ChatMessage deserialize(ConfigurationSection conf) {
+        return new ChatMessage(conf.getString("_"));
     }
 
     @Override
-    public ConfigurationSection serialize(ActionBarAlert actionBarAlert) {
+    public ConfigurationSection serialize(ChatMessage chatMessage) {
         YamlConfiguration section = new YamlConfiguration();
-        section.set("_", actionBarAlert.message);
+        section.set("_", chatMessage.message);
         return section;
     }
 }

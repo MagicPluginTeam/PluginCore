@@ -4,11 +4,11 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 
-public class ActionBarAlert implements Alert {
+public class ActionBarMessage implements Message {
 
     String message;
 
-    public ActionBarAlert(String message) {
+    public ActionBarMessage(String message) {
         this.message = message;
     }
 

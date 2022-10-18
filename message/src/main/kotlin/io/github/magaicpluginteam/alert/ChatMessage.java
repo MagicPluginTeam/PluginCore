@@ -2,11 +2,11 @@ package io.github.magaicpluginteam.alert;
 
 import org.bukkit.entity.Player;
 
-public class ChatAlert implements Alert {
+public class ChatMessage implements Message {
 
     String message;
 
-    public ChatAlert(String message) {
+    public ChatMessage(String message) {
         this.message = message;
     }
 

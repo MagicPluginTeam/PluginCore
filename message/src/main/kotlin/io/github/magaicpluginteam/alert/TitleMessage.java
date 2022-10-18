@@ -3,7 +3,7 @@ package io.github.magaicpluginteam.alert;
 import io.github.magaicpluginteam.alert.utils.ArrayUtils;
 import org.bukkit.entity.Player;
 
-public class TitleAlert implements Alert {
+public class TitleMessage implements Message {
 
     int fadeIn;
     int stay;
@@ -11,7 +11,7 @@ public class TitleAlert implements Alert {
     String title;
     String subtitle;
 
-    public TitleAlert(int fadeIn, int stay, int fadeOut, String title, String subtitle) {
+    public TitleMessage(int fadeIn, int stay, int fadeOut, String title, String subtitle) {
         this.fadeIn = fadeIn;
         this.stay = stay;
         this.fadeOut = fadeOut;
