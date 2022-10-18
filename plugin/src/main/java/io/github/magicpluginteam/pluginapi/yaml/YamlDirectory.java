@@ -1,6 +1,7 @@
-package io.github.magicpluginteam.pluginapi;
+package io.github.magicpluginteam.pluginapi.yaml;
 
 import io.github.magaicpluginteam.alert.*;
+import io.github.magicpluginteam.pluginapi.Plugin;
 import io.github.magicpluginteam.serialize.*;
 import io.github.magicpluginteam.serialize.injector.YamlFile;
 import io.github.magicpluginteam.serialize.injector.YamlInjector;
