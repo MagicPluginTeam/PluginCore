@@ -20,11 +20,10 @@ public class YamlInjector {
                 YamlSection<?> section;
                 if (serializableClasses.length == 1) {
                     section = new YamlSection<>(serializableClasses[0].newInstance());
-                    field.set(obj, section);
                 } else {
                     section = new YamlSection<>(new SerializableYamlSymbol<>(serializableClasses));
-                    field.set(obj, section);
                 }
+                field.set(obj, section);
                 String name = annotation.name();
                 section.deserialize(YamlConfiguration.loadConfiguration(new File(root, name)));
             } catch (IllegalAccessException | InstantiationException e) {
