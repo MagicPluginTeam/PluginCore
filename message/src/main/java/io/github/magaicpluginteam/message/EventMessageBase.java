@@ -1,6 +1,6 @@
-package io.github.magaicpluginteam.alert;
+package io.github.magaicpluginteam.message;
 
-import io.github.magaicpluginteam.alert.utils.ArrayUtils;
+import io.github.magaicpluginteam.message.utils.ArrayUtils;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 

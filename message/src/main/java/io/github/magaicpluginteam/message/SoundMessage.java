@@ -1,4 +1,4 @@
-package io.github.magaicpluginteam.alert;
+package io.github.magaicpluginteam.message;
 
 import org.bukkit.entity.Player;
 

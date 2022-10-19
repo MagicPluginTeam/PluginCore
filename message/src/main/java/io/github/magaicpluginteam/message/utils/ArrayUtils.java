@@ -1,4 +1,4 @@
-package io.github.magaicpluginteam.alert.utils;
+package io.github.magaicpluginteam.message.utils;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,7 +1,7 @@
 package io.github.magicpluginteam.pluginapi.yaml;
 
-import io.github.magaicpluginteam.alert.*;
-import io.github.magaicpluginteam.alert.serialize.*;
+import io.github.magaicpluginteam.message.Message;
+import io.github.magaicpluginteam.message.serialize.*;
 import io.github.magicpluginteam.pluginapi.Plugin;
 import io.github.magicpluginteam.serialize.*;
 import io.github.magicpluginteam.serialize.injector.YamlFile;
@@ -28,7 +28,7 @@ public class YamlDirectory {
             SoundMessageSerialize.class,
             TitleMessageSerialize.class
     })
-    public YamlSection<Message> alerts;
+    public YamlSection<Message> messages;
 
     public YamlDirectory(Plugin plugin) {
         YamlInjector.inject(this, plugin.getDataFolder());

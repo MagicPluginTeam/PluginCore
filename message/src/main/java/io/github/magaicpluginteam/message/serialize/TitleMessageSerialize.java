@@ -1,6 +1,6 @@
-package io.github.magaicpluginteam.alert.serialize;
+package io.github.magaicpluginteam.message.serialize;
 
-import io.github.magaicpluginteam.alert.TitleMessage;
+import io.github.magaicpluginteam.message.TitleMessage;
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;

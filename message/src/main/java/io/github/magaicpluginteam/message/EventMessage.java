@@ -1,4 +1,4 @@
-package io.github.magaicpluginteam.alert;
+package io.github.magaicpluginteam.message;
 
 import net.md_5.bungee.api.chat.TextComponent;
 

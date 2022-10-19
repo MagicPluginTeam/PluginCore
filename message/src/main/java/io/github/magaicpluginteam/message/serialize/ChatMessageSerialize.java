@@ -1,6 +1,6 @@
-package io.github.magaicpluginteam.alert.serialize;
+package io.github.magaicpluginteam.message.serialize;
 
-import io.github.magaicpluginteam.alert.ChatMessage;
+import io.github.magaicpluginteam.message.ChatMessage;
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;

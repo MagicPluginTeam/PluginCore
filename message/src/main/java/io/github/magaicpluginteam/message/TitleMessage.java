@@ -1,6 +1,6 @@
-package io.github.magaicpluginteam.alert;
+package io.github.magaicpluginteam.message;
 
-import io.github.magaicpluginteam.alert.utils.ArrayUtils;
+import io.github.magaicpluginteam.message.utils.ArrayUtils;
 import org.bukkit.entity.Player;
 
 public class TitleMessage implements Message {
