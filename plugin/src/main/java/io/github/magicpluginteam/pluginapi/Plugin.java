@@ -1,5 +1,6 @@
 package io.github.magicpluginteam.pluginapi;
 
+import io.github.magicpluginteam.pluginapi.gui.TestCode;
 import io.github.magicpluginteam.pluginapi.utils.ClassUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -27,6 +28,7 @@ public class Plugin extends JavaPlugin implements Listener {
         ClassUtils.loadJarFilesToFolder(this, false, Arrays.asList(".yml", ".schem"), List.of("plugin.yml"));
         Bukkit.getPluginManager().registerEvents(this, this);
         allowTask = true;
+        TestCode.test(this);
     }
 
     @Override
@@ -35,4 +37,5 @@ public class Plugin extends JavaPlugin implements Listener {
         allowTask = false;
         disableEvent.forEach(Runnable::run);
     }
+
 }

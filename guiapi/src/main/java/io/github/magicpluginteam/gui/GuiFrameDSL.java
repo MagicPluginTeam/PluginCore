@@ -1,5 +1,6 @@
 package io.github.magicpluginteam.gui;
 
+import io.github.magicpluginteam.gui.utils.Function2;
 import io.github.magicpluginteam.gui.utils.Function3;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -7,7 +8,10 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class GuiFrameDSL {
 
@@ -25,6 +29,18 @@ public class GuiFrameDSL {
 
     public GuiFrameDSL slot(int x, int y, ItemStack itemStack, Consumer<InventoryClickEvent> onClick) {
         guiFrame.slot(x, y, itemStack, onClick);
+        return this;
+    }
+
+    public <T> GuiFrameDSL list(int x, int y, int width, int height, Supplier<List<T>> items,
+                                Function<T, ItemStack> transform, Function2<GuiListDSL<T>, GuiFrameDSL> init) {
+        guiFrame.list(x, y, width, height, items, transform,
+                (guiList, guiFrame) -> init.invoke(new GuiListDSL<>(guiList), this));
+        return this;
+    }
+
+    public GuiFrameDSL item(int x, int y, ItemStack itemStack) {
+        guiFrame.item(x, y, itemStack);
         return this;
     }
 
@@ -52,9 +68,5 @@ public class GuiFrameDSL {
         guiFrame.onClickOutside = onClickOutside;
         return this;
     }
-
-
-
-
 
 }
