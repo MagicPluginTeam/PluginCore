@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.pluginapi.yaml;
+package io.github.magicpluginteam.serialize.serialize;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;

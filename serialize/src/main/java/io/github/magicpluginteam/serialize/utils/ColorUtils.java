@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.pluginapi.utils;
+package io.github.magicpluginteam.serialize.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
