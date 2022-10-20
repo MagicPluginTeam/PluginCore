@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.serialize.serialize;
+package io.github.magicpluginteam.serialize.field;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

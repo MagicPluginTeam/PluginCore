@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.serialize.serialize;
+package io.github.magicpluginteam.serialize.field;
 
 import io.github.magicpluginteam.serialize.YamlSectionSerializable;
 import io.github.magicpluginteam.serialize.utils.ClassUtils;
