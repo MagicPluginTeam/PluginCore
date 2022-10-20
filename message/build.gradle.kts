@@ -1,1 +1,4 @@
-dependencies { api(project(":serialize")) }
+dependencies {
+    api(project(":serialize"))
+    api(project(":lang"))
+}

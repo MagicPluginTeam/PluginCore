@@ -30,6 +30,7 @@ allprojects {
         maven { url = uri("https://jitpack.io") }
         maven { url = uri("https://libraries.minecraft.net/") }
         maven { url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/") }
+        maven { url = uri("https://raw.githubusercontent.com/MagicPluginTeam/maven-mirror/guiapi/") }
 
     }
 
@@ -38,6 +39,7 @@ allprojects {
         api("org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}")
         api("org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}")
         api("org.jetbrains.kotlin:kotlin-test:${kotlin_version}")
+        compileOnly("io.github.magicpluginteam:guiapi:29")
 
         compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
     }
