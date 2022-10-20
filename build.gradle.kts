@@ -39,7 +39,6 @@ allprojects {
         api("org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}")
         api("org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}")
         api("org.jetbrains.kotlin:kotlin-test:${kotlin_version}")
-        compileOnly("io.github.magicpluginteam:guiapi:29")
 
         compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
     }
