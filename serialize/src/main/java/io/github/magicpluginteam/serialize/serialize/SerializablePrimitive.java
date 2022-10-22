@@ -1,13 +1,13 @@
 package io.github.magicpluginteam.serialize.serialize;
 
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import io.github.magicpluginteam.serialize.utils.NumberUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "config")
-public class SerializablePrimitive implements YamlSectionSerializable<Object> {
+public class SerializablePrimitive implements YamlSerialize<Object> {
     @Override
     public Object deserialize(ConfigurationSection conf) {
         var name = "_";

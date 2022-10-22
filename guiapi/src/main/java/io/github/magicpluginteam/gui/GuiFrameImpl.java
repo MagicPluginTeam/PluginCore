@@ -12,7 +12,6 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,6 @@ public class GuiFrameImpl implements GuiWindow, GuiFrame {
     private final ArrayList<GuiRegion> slots = new ArrayList<>();
 
     private final Inventory inv;
-    @NotNull
     @Override
     public Inventory getInventory() { return inv; }
 

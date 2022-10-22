@@ -1,13 +1,13 @@
 package io.github.magaicpluginteam.message.serialize;
 
 import io.github.magaicpluginteam.message.HoverMessage;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "hover")
-public class HoverMessageSerialize implements YamlSectionSerializable<HoverMessage> {
+public class HoverMessageSerialize implements YamlSerialize<HoverMessage> {
     @Override
     public HoverMessage deserialize(ConfigurationSection conf) {
         return new HoverMessage(

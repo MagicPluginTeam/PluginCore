@@ -1,13 +1,13 @@
 package io.github.magaicpluginteam.message.serialize;
 
 import io.github.magaicpluginteam.message.TitleMessage;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "title")
-public class TitleMessageSerialize implements YamlSectionSerializable<TitleMessage> {
+public class TitleMessageSerialize implements YamlSerialize<TitleMessage> {
     @Override
     public TitleMessage deserialize(ConfigurationSection conf) {
         return new TitleMessage(

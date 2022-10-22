@@ -1,7 +1,5 @@
 package io.github.magicpluginteam.gui.utils;
 
-import com.google.common.math.PairedStats;
-
 public class Pair<K, V> {
 
     private final K first;
@@ -18,5 +16,16 @@ public class Pair<K, V> {
 
     public V getSecond() {
         return second;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equals = super.equals(obj);
+        if (!equals && obj instanceof Pair<?, ?> p) {
+            if (first.equals(p) && second.equals(p)) {
+                return true;
+            }
+        }
+        return equals;
     }
 }

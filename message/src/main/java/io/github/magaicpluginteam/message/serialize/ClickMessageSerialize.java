@@ -1,13 +1,13 @@
 package io.github.magaicpluginteam.message.serialize;
 
 import io.github.magaicpluginteam.message.ClickMessage;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "click")
-public class ClickMessageSerialize implements YamlSectionSerializable<ClickMessage> {
+public class ClickMessageSerialize implements YamlSerialize<ClickMessage> {
     @Override
     public ClickMessage deserialize(ConfigurationSection conf) {
         return new ClickMessage(

@@ -1,13 +1,13 @@
 package io.github.magaicpluginteam.message.serialize;
 
 import io.github.magaicpluginteam.message.ChatMessage;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "chat")
-public class ChatMessageSerialize implements YamlSectionSerializable<ChatMessage> {
+public class ChatMessageSerialize implements YamlSerialize<ChatMessage> {
     @Override
     public ChatMessage deserialize(ConfigurationSection conf) {
         return new ChatMessage(conf.getString("_"));

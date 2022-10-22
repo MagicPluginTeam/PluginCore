@@ -1,8 +1,8 @@
 package io.github.magicpluginteam.serialize.serialize;
 
-import io.github.magicpluginteam.serialize.utils.ColorUtils;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
+import io.github.magicpluginteam.serialize.utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -20,7 +20,7 @@ import org.bukkit.potion.PotionType;
 import java.util.List;
 
 @YamlSymbol(symbol = "items")
-public class SerializableItemStack implements YamlSectionSerializable<ItemStack> {
+public class SerializableItemStack implements YamlSerialize<ItemStack> {
     @Override
     public ItemStack deserialize(ConfigurationSection conf) {
         ItemStack itemStack;

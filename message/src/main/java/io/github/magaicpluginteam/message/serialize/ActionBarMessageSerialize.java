@@ -1,13 +1,13 @@
 package io.github.magaicpluginteam.message.serialize;
 
 import io.github.magaicpluginteam.message.ActionBarMessage;
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 @YamlSymbol(symbol = "actionbar")
-public class ActionBarMessageSerialize implements YamlSectionSerializable<ActionBarMessage> {
+public class ActionBarMessageSerialize implements YamlSerialize<ActionBarMessage> {
     @Override
     public ActionBarMessage deserialize(ConfigurationSection conf) {
         return new ActionBarMessage(conf.getString("_"));

@@ -1,6 +1,8 @@
 package io.github.magicpluginteam.pluginapi;
 
-import io.github.magicpluginteam.pluginapi.gui.TestCode;
+import io.github.magicpluginteam.lang.PlayerLangSupport;
+import io.github.magicpluginteam.pluginapi.test.GuiTestCode;
+import io.github.magicpluginteam.pluginapi.test.YamlTestCode;
 import io.github.magicpluginteam.pluginapi.utils.ClassUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -19,6 +21,11 @@ public class Plugin extends JavaPlugin implements Listener {
     public void addDisableEvent(Runnable runnable) {
         disableEvent.add(runnable);
     }
+    private PlayerLangSupport lang;
+
+    public PlayerLangSupport getLang() {
+        return lang;
+    }
 
     @Override
     public void onEnable() {
@@ -28,7 +35,9 @@ public class Plugin extends JavaPlugin implements Listener {
         ClassUtils.loadJarFilesToFolder(this, false, Arrays.asList(".yml", ".schem"), List.of("plugin.yml"));
         Bukkit.getPluginManager().registerEvents(this, this);
         allowTask = true;
-        TestCode.test(this);
+        GuiTestCode.test(this);
+        lang = new PlayerLangSupport(this, "KR");
+        new YamlTestCode(this);
     }
 
     @Override

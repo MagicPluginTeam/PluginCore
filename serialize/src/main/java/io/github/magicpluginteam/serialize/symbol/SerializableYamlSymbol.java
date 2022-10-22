@@ -1,6 +1,6 @@
 package io.github.magicpluginteam.serialize.symbol;
 
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.utils.ClassUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -26,25 +26,26 @@ import java.util.HashMap;
  *
  *  You can use multiple serializer in one yaml file with this
  */
-public class SerializableYamlSymbol<T> implements YamlSectionSerializable<T> {
+public class SerializableYamlSymbol<T> implements YamlSerialize<T> {
 
-    private final HashMap<String, YamlSectionSerializable<T>> serializableMap = new HashMap<>();
+    private final HashMap<String, YamlSerialize<T>> serializableMap = new HashMap<>();
 
-    public SerializableYamlSymbol(Class<? extends YamlSectionSerializable<? extends T>>[] classes) {
+    @SafeVarargs
+    public SerializableYamlSymbol(Class<? extends YamlSerialize<? extends T>>...classes) {
         Arrays.stream(classes).forEach(this::bind);
     }
 
-    public void bind(Class<? extends YamlSectionSerializable<? extends T>> clazz) {
+    public void bind(Class<? extends YamlSerialize<? extends T>> clazz) {
         YamlSymbol annotation = clazz.getAnnotation(YamlSymbol.class);
         if (annotation == null) {
-            throw new AssertionError(clazz.getSimpleName() + " does not have YamlSerializable annotation");
+            throw new AssertionError(clazz.getSimpleName() + " does not have YamlSymbol annotation");
         }
         try {
             String symbol = annotation.symbol();
             if (serializableMap.getOrDefault(symbol, null) != null) {
                 throw new AssertionError(symbol + " symbol is already exists");
             }
-            serializableMap.put(symbol, (YamlSectionSerializable<T>) clazz.newInstance());
+            serializableMap.put(symbol, (YamlSerialize<T>) clazz.newInstance());
         } catch (InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
@@ -58,7 +59,14 @@ public class SerializableYamlSymbol<T> implements YamlSectionSerializable<T> {
         var serializable = serializableMap.getOrDefault(symbol, null);
         if (serializable == null)
             throw new AssertionError(symbol + " symbol is not valid");
-        return serializable.deserialize(conf.getConfigurationSection(symbol));
+        ConfigurationSection section;
+        if (conf.isConfigurationSection(symbol)) {
+            section = conf.getConfigurationSection(symbol);
+        } else {
+            section = new YamlConfiguration();
+            section.set("_", conf.get(symbol));
+        }
+        return serializable.deserialize(section);
     }
 
     @Override

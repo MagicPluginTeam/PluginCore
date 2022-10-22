@@ -1,20 +1,24 @@
 package io.github.magicpluginteam.serialize.injector;
 
 import io.github.magicpluginteam.serialize.YamlSection;
-import io.github.magicpluginteam.serialize.symbol.SerializableYamlSymbol;
+import io.github.magicpluginteam.serialize.symbol.YamlSymbol;
+import io.github.magicpluginteam.serialize.tree.YamlTreeUtils;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * You can inject yaml hashmap with serializer
  *
  * example:
- * `@YamlFile(file = "config.yml", serializable = SomeSerializer.class)`
- * `public YamlSection<GenericType> config;`
+ * \@YamlFile(serializable = SomeSerializer.class)
+ * public YamlSection<Type> config;
+ * \@YamlFile(serializable = ItemSerializer.class, relative = "lang")
+ * public HashMap<String, YamlSection<Item>> items;
  *
- * If YamlFile#serializable array have multiple elements, it automatically switches to YamlSymbol Serializer
  */
 public class YamlInjector {
 
@@ -24,19 +28,38 @@ public class YamlInjector {
             if (annotation == null) {
                 continue;
             }
-            var serializableClasses  = annotation.serializable();
+            var serializeClass = annotation.serializable();
+            YamlSymbol symbolAnnotation = serializeClass.getAnnotation(YamlSymbol.class);
+            if (symbolAnnotation == null) {
+                throw new AssertionError(serializeClass.getSimpleName() + " does not have YamlSymbol annotation");
+            }
+            String symbol = symbolAnnotation.symbol();
             try {
-                YamlSection<?> section;
-                if (serializableClasses.length == 1) {
-                    section = new YamlSection<>(serializableClasses[0].newInstance());
+                if (field.getType().isAssignableFrom(HashMap.class)) {
+                    var map = field.getType().newInstance();
+                    field.set(obj, map);
+                    var yamlMap = ((HashMap<String, Object>) map);
+                    File base = new File(root, annotation.relative());
+                    List<String> paths = YamlTreeUtils.recursionFiles(base, 2);
+                    for (var path : paths) {
+                        File file = new File(base, path);
+                        String fileName = file.getName();
+                        int endIndex = fileName.lastIndexOf(".");
+                        if (endIndex == -1) continue;
+                        String nameWithoutExtension = fileName.substring(0, endIndex);
+                        if (nameWithoutExtension.equals(symbol)) {
+                            YamlSection<?> section = new YamlSection<>(serializeClass.newInstance());
+                            section.deserialize(YamlConfiguration.loadConfiguration(file));
+                            yamlMap.put(file.getParentFile().getName(), section);
+                        }
+                    }
                 } else {
-                    section = new YamlSection<>(new SerializableYamlSymbol<>(serializableClasses));
+                    YamlSection<?> section = new YamlSection<>(serializeClass.newInstance());
+                    field.set(obj, section);
+                    section.deserialize(YamlConfiguration.loadConfiguration(new File(root, symbol + ".yml")));
                 }
-                field.set(obj, section);
-                String name = annotation.name();
-                section.deserialize(YamlConfiguration.loadConfiguration(new File(root, name)));
             } catch (IllegalAccessException | InstantiationException e) {
-                throw new RuntimeException(e);
+                throw new AssertionError("an error occurred while inject field");
             }
         }
     }

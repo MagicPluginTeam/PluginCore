@@ -8,14 +8,16 @@ buildscript {
     }
 }
 plugins {
-
-    kotlin("jvm") version "1.7.0"
     id("org.jetbrains.dokka") version "1.4.32"
     id("maven-publish")
+    java
+    `java-library`
+
     application
 }
 allprojects {
-    apply(plugin = "kotlin")
+    apply(plugin = "org.gradle.java")
+    apply(plugin = "org.gradle.java-library")
     apply(plugin = "com.github.johnrengelman.shadow")
     tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
         archiveFileName.set("${rootProject.name}.jar")
@@ -35,12 +37,10 @@ allprojects {
     }
 
     dependencies {
-        api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-        api("org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}")
-        api("org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}")
-        api("org.jetbrains.kotlin:kotlin-test:${kotlin_version}")
+//        api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
         compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
+
     }
 }
 

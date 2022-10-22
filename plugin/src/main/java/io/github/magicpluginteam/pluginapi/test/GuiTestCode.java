@@ -1,4 +1,4 @@
-package io.github.magicpluginteam.pluginapi.gui;
+package io.github.magicpluginteam.pluginapi.test;
 
 import io.github.magicpluginteam.gui.Gui;
 import org.bukkit.Bukkit;
@@ -10,19 +10,16 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
-public class TestCode implements Listener {
+public class GuiTestCode implements Listener {
 
     private final Plugin plugin;
 
-    public TestCode(Plugin plugin) {
+    public GuiTestCode(Plugin plugin) {
         this.plugin = plugin;
     }
 
     public static void test(Plugin plugin) {
-        Bukkit.getPluginManager().registerEvents(new TestCode(plugin), plugin);
+        Bukkit.getPluginManager().registerEvents(new GuiTestCode(plugin), plugin);
     }
 
     public static void testCodeUsage(Plugin plugin, Player player) {

@@ -1,13 +1,13 @@
 package io.github.magicpluginteam.serialize.field;
 
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 import io.github.magicpluginteam.serialize.utils.ClassUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.lang.reflect.Field;
 
-public class SerializableField<T> implements YamlSectionSerializable<T> {
+public class SerializableField<T> implements YamlSerialize<T> {
 
     private final T t;
 

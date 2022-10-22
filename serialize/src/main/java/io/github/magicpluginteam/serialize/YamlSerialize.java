@@ -2,7 +2,7 @@ package io.github.magicpluginteam.serialize;
 
 import org.bukkit.configuration.ConfigurationSection;
 
-public interface YamlSectionSerializable<T> {
+public interface YamlSerialize<T> {
 
     T deserialize(ConfigurationSection conf);
 

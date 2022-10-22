@@ -1,6 +1,6 @@
 package io.github.magicpluginteam.serialize.injector;
 
-import io.github.magicpluginteam.serialize.YamlSectionSerializable;
+import io.github.magicpluginteam.serialize.YamlSerialize;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,8 +11,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 
 public @interface YamlFile {
-    String name();
-
-    Class<? extends YamlSectionSerializable<?>>[] serializable();
+    Class<? extends YamlSerialize<?>> serializable();
+    String relative() default "";
 
 }
