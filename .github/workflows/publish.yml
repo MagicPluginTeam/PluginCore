@@ -6,8 +6,9 @@ on:
 env:
   GITHUB_REPOSITORY: ${{ github.repository }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GITHUB_ACTOR: ${{ github.actor }}
-  GITHUB_BUILD_NUMBER: ${{ github.run_number }}
+  SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+  SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+  GITHUB_BUILD_NUMBER: ${{github.run_number}}
 jobs:
   gradle:
     strategy:
@@ -33,4 +34,3 @@ jobs:
       - run: git tag ${{github.run_number}}
       - name: Execute Gradle build
         run: ./gradlew publish
-
