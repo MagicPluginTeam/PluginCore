@@ -9,6 +9,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * You can inject yaml hashmap with serializer
@@ -38,7 +39,7 @@ public class YamlInjector {
                 if (field.getType().isAssignableFrom(HashMap.class)) {
                     var map = field.getType().newInstance();
                     field.set(obj, map);
-                    var yamlMap = ((HashMap<String, Object>) map);
+                    var yamlMap = ((Map<String, Object>) map);
                     File base = new File(root, annotation.relative());
                     List<String> paths = YamlTreeUtils.recursionFiles(base, 2);
                     for (var path : paths) {
