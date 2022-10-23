@@ -32,10 +32,6 @@ public class SerializableItemStack implements YamlSerialize<ItemStack> {
         } else {
             itemStack = new ItemStack(Material.AIR);
         }
-        if (itemStack.getItemMeta() == null) {
-            itemStack.setItemMeta(Bukkit.getItemFactory().getItemMeta(itemStack.getType()));
-        }
-        ItemMeta itemMeta = itemStack.getItemMeta();
         if (conf.isSet("type")) {
             String type = string(conf, "type");
             try {
@@ -44,6 +40,7 @@ public class SerializableItemStack implements YamlSerialize<ItemStack> {
                 throw new AssertionError(type + " is not a material");
             }
         }
+        ItemMeta itemMeta = Bukkit.getItemFactory().getItemMeta(itemStack.getType());
         if (conf.isSet("amount")) {
             itemStack.setAmount(conf.getInt("amount"));
         }
@@ -96,7 +93,8 @@ public class SerializableItemStack implements YamlSerialize<ItemStack> {
                 }
             });
         }
-        return new ItemStack(Material.valueOf(conf.getString("Material")));
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 
     @Override

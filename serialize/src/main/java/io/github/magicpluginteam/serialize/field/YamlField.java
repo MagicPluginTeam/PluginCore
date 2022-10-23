@@ -1,5 +1,7 @@
 package io.github.magicpluginteam.serialize.field;
 
+import io.github.magicpluginteam.serialize.YamlSerialize;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,6 +12,6 @@ import java.lang.annotation.Target;
 
 public @interface YamlField {
 
-    String key();
+    Class<? extends YamlSerialize<?>> serializable();
 
 }

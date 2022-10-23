@@ -5,6 +5,9 @@ import io.github.magicpluginteam.pluginapi.yaml.Yaml;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.io.File;
 
 public class YamlTestCode extends TestCodeBase {
     public YamlTestCode(Plugin plugin) {
@@ -15,12 +18,11 @@ public class YamlTestCode extends TestCodeBase {
     public void onJoin(PlayerChatEvent event) {
         Player player = event.getPlayer();
         long before = System.currentTimeMillis();
-        Yaml yaml = new Yaml(plugin.getDataFolder());
+        Yaml yaml = new Yaml(new File(plugin.getDataFolder(), "config.yml"));
         long after = System.currentTimeMillis();
-        yaml
-                .messages
-                .get("KR")
-                .get("test")
-                .send(player, "Bruce");
+
+        System.out.println(yaml.getIntValue());
+        ItemStack item = yaml.getItem();
+        player.getInventory().addItem(item);
     }
 }
