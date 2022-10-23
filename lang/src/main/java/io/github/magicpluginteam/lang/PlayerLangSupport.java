@@ -10,6 +10,8 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.Plugin;
 
+import static io.github.magicpluginteam.lang.Const.LANG_KEY;
+
 public class PlayerLangSupport implements Listener {
 
     private final Plugin plugin;
@@ -20,11 +22,7 @@ public class PlayerLangSupport implements Listener {
         this.defLang = defLang;
     }
 
-    public String get(Player player) {
-        return player.getMetadata(LANG_KEY).get(0).asString();
-    }
 
-    private static final String LANG_KEY = "PlayerLanguage";
 
     @SuppressWarnings("unused")
     @EventHandler(priority = EventPriority.LOWEST)

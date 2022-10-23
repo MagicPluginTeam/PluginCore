@@ -1,6 +1,6 @@
 include("message")
 include("dbapi")
-include("plugin")
+include("pluginapi")
 include("serialize")
 include("lang")
 include("guiapi")
